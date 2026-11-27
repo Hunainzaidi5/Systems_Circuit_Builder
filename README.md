@@ -7,6 +7,7 @@ A browser-based, drag-and-drop simulator for building and running electrical, hy
 ## Features
 
 - **Large searchable component library:** AC/DC and 3-phase power, protection devices, relays and contactors, PLC/VFD/soft starters, motors, transformers, UPS, solar/wind, LiFePO4 battery banks with BMS, hybrid inverters and ATS
+- **Test and protection gear:** digital multimeter (AUTO / V AC / V DC / Ω / continuity with beeper / diode), series AC and DC V·A·W meters with energy and alarm contacts, thermal-magnetic AC/DC breakers with shunt trip and aux contacts, and 1-phase isolation, 3-phase Dyn11 and HV transformers with taps, regulation, losses and thermal protection
 - **Process and fluids:** pumps, tanks, valves, hydraulic cylinders and motors, ISO-style spool valves, instruments and transmitters for pressure, flow, level, temperature, pH, conductivity and gas detection
 - **Power-system analysis:** electrical union-find nets, DC nodal solver, prospective fault levels, IEC inverse-time curves, AC bus voltage/cable-drop estimates, generator synchronising and paralleling, 4–20 mA AI/AO loops, Modbus slave/master
 - **Fluids and thermal systems:** hydraulic flow and nodal pressure, pump curves, NPSH/cavitation and water-hammer estimates; gas, steam, air and flue propagation; IAPWS steam properties and psychrometrics
@@ -36,11 +37,12 @@ Keep `index.html`, `styles.css` and the `scripts/` folder together.
 Systems_Circuit_Builder/
 ├── index.html        # page layout and script references
 ├── styles.css        # all styling (dark/light theme, panels, palette)
-├── scripts/          # 44 classic scripts loaded in the order below
+├── scripts/          # 45 classic scripts loaded in the order below
 │   ├── 01-script.js
 │   ├── …
 │   ├── 43-script.js
-│   └── 44-script.js
+│   ├── 44-script.js
+│   └── 45-script.js
 ├── README.md
 ├── LICENSE
 └── gitignore
@@ -92,6 +94,7 @@ The scripts are classic (non-module) scripts and **must load in the exact order 
 | 42 | Redesigned graphics/terminal layout for newer parts plus collapsible sidebar/palette controls |
 | 43 | Component library re-categorisation into clean ordered groups |
 | 44 | Electrically powered, animated Air Supply; fault diagnostics (fault list, short-circuit tracing, board highlights); left-panel group tinting |
+| 45 | Root-cause fixes and library clean-up (SPD/Pipe Support/Reactor/Flash Tank init keys, CT/VT/generic transformer/solenoid removed, old-board migration), digital multimeter, AC/DC V·A·W meters, thermal-magnetic AC/DC breakers and 1Φ/3Φ Dyn11/HV transformer models |
 
 ### Component registry & extension points
 
