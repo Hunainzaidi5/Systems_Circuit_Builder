@@ -65,15 +65,15 @@ def2('heatexchanger',{name:'Shell & Tube HX',tag:'HX',cat:'Process Equipment',w:
 def2('flashtank',{name:'Flash Tank',tag:'FT',cat:'Process Equipment',w:110,h:90,icon:'💨',
   term:[['STEAM_IN',-60,-20,-1,0,'h'],['STEAM_OUT',0,-20,0,-1,'h'],['COND_OUT',-60,20,-1,0,'h']],
   pins:{STEAM_IN:'wet steam / condensate in',STEAM_OUT:'dry steam out',COND_OUT:'condensate drain out'},
-  init:{P:1.0,x:0.15},
+  init:{P:1.0,xf:0.15},
   links:()=>[],
-  draw:(c,d)=>{box(c,d,COL.edge);G(c);ctx.fillStyle='#8fb3c9';ctx.font='9px Inter';ctx.textAlign='center';ctx.fillText(`flash ${(N(c.x,.15)*100).toFixed(0)}%`,0,24);},
+  draw:(c,d)=>{box(c,d,COL.edge);G(c);ctx.fillStyle='#8fb3c9';ctx.font='9px Inter';ctx.textAlign='center';ctx.fillText(`flash ${(N(c.xf,.15)*100).toFixed(0)}%`,0,24);},
   tick:(c,dt)=>{ /* flash fraction from pressure let-down: x ≈ (h_in−hf)/hfg at tank P */
     const st=window.STEAM;if(st&&st.steam){try{const pin=1.5,pt=N(c.P,1);
       const hin=st.steam(pin,250).h,hf=st.steam(pt,st.tsat(pt)+1).hf||st.steam(pt,st.tsat(pt)).hf;
-      const hfg=(st.steam(pt,st.tsat(pt)+50).h-hf)||2500;c.x=clamp((hin-hf)/hfg,0,0.6);}catch(e){c.x=0.15;}}},
+      const hfg=(st.steam(pt,st.tsat(pt)+50).h-hf)||2500;c.xf=clamp((hin-hf)/hfg,0,0.6);}catch(e){c.xf=0.15;}}},
   props:(c,el)=>{el.insertAdjacentHTML('beforeend',`<div class="f"><label>Tank P (MPa)</label><input type="number" data-k="P" data-t="n" min="0.01" step="0.1" value="${N(c.P,1)}"></div><div class="note">Flash fraction x=(h_in−h_f)/h_fg from IAPWS tables.</div>`);},
-  desc:c=>`flash ${(N(c.x,.15)*100).toFixed(0)}% at ${N(c.P,1)} MPa`,
+  desc:c=>`flash ${(N(c.xf,.15)*100).toFixed(0)}% at ${N(c.P,1)} MPa`,
   blurb:'Flash tank — pressure let-down separates steam from condensate. Uses IAPWS steam properties.'});
 
 /* ── desuperheater ── */

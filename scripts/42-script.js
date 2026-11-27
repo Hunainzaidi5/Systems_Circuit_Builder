@@ -329,7 +329,7 @@ reg('heatexchanger',c=>{const th=N(c.T_hot_in,150),tho=N(c.T_hot_out,90),tc=N(c.
   T(c,`hot ${th.toFixed(0)}→${tho.toFixed(0)}  ·  cold ${tc.toFixed(0)}→${tco.toFixed(0)} °C`,0,0,'#e2e8f0',7,'center',800);
   T(c,c.label||'HX',20,-44,'#dbe8f7',9,'left',800);
 });
-reg('flashtank',c=>{const x=clamp(N(c.x,.15),0,1);
+reg('flashtank',c=>{const x=clamp(N(c.xf,.15),0,1);
   tube(-32,-58,64,116,28,'#7f93a6',true);
   ctx.save();rr(-32,-58,64,116,28);ctx.clip();ctx.fillStyle='rgba(8,16,26,.55)';ctx.fillRect(-32,-58,64,116);
   const ly=30-x*40;ctx.fillStyle='rgba(56,150,220,.75)';ctx.fillRect(-32,ly,64,60);

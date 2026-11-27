@@ -65,7 +65,7 @@ const DEFS={
   capacitorbank:{name:'Capacitor Bank',tag:'CB',icon:'⚡',cat:'Electrical Power',w:100,h:80,term:[['A',-40,-20,-1,0],['B',-40,20,-1,0]],init:{kvar:25,voltage:400,connected:false}},
   supercap:{name:'Supercapacitor',tag:'SC',icon:'🔋',cat:'Electrical Power',w:80,h:100,term:[['+',-30,-40,-1,0],['-',-30,40,-1,0]],init:{farads:100,voltage:2.7,soc:50}},
   fuse:{name:'Fuse',tag:'F',icon:'🔒',cat:'Electrical Protection',w:60,h:40,term:[['a',-30,0,-1,0],['b',30,0,1,0]],init:{rating:10,blown:false}},
-  spd:{name:'SPD',tag:'SPD',icon:'⚡',cat:'Electrical Protection',w:80,h:60,term:[['L',-35,-15,-1,0],['N',-35,15,-1,0],['PE',35,0,1,0]],init:{type:'type2',status:'ok'}},
+  spd:{name:'SPD',tag:'SPD',icon:'⚡',cat:'Electrical Protection',w:80,h:60,term:[['L',-35,-15,-1,0],['N',-35,15,-1,0],['PE',35,0,1,0]],init:{spdType:'type2',status:'ok'}},
   earthrod:{name:'Earth Rod',tag:'ER',icon:'🌍',cat:'Electrical Protection',w:60,h:100,term:[['PE',0,40,0,1]],init:{resistance:10}},
   lightning:{name:'Lightning Arrester',tag:'LA',icon:'⚡',cat:'Electrical Protection',w:60,h:80,term:[['L',-25,-20,-1,0],['PE',-25,20,-1,0]],init:{status:'ok'}},
   relay:{name:'Relay',tag:'K',icon:'🔌',cat:'Process Control',w:100,h:80,term:[['A1',-45,-25,-1,0],['A2',-45,25,-1,0],['NO',45,-25,1,0],['NC',45,25,1,0],['COM',0,35,0,1]],init:{coilOn:false,contact:'NO'}},
@@ -134,7 +134,7 @@ const DEFS={
   busbar:{name:'Busbar',tag:'BB',icon:'▬',cat:'Electrical Wiring',w:200,h:30,term:[['L1',-90,0,-1,0],['L2',-30,0,-1,0],['L3',30,0,-1,0],['N',90,0,1,0]],init:{voltage:11000,current:0}},
   hvbreaker:{name:'HV Breaker',tag:'HVB',icon:'🔌',cat:'Electrical Protection',w:100,h:80,term:[['L',-40,-25,-1,0],['N',-40,25,-1,0],['L_out',40,-25,1,0],['N_out',40,25,1,0]],init:{kv:11,rating:2000,closed:false,tripped:false}},
   transformerhv:{name:'HV Transformer',tag:'HVT',icon:'🔄',cat:'Electrical Protection',w:140,h:100,term:[['PRI_L',-60,-30,-1,0],['PRI_N',-60,30,-1,0],['SEC_L',60,-30,1,0],['SEC_N',60,30,1,0]],init:{priKv:11,secKv:0.4,mva:50,ratio:27.5}},
-  reactor:{name:'Reactor',tag:'RE',icon:'⚛️',cat:'Electrical Protection',w:120,h:120,term:[['L',-50,-30,-1,0],['N',-50,30,-1,0]],init:{mvar:50,x:0.2,ratedV:11}},
+  reactor:{name:'Reactor',tag:'RE',icon:'⚛️',cat:'Electrical Protection',w:120,h:120,term:[['L',-50,-30,-1,0],['N',-50,30,-1,0]],init:{mvar:50,xpu:0.2,ratedV:11}},
   differentialrelay:{name:'Diff Relay',tag:'DR',icon:'🔌',cat:'Electrical Protection',w:100,h:80,term:[['CT1_IN',-40,-25,-1,0],['CT2_IN',-40,25,-1,0],['CT1_OUT',40,-25,1,0],['CT2_OUT',40,25,1,0],['TRIP',0,40,0,1]],init:{tripped:false,setting:0.2,measuredDiff:0}},
   overcurrentrelay:{name:'OC Relay',tag:'OCR',icon:'🔌',cat:'Electrical Protection',w:100,h:80,term:[['CT_IN',-40,-20,-1,0],['TRIP',40,0,1,0]],init:{tripped:false,setting:1.5,timeDelay:0.5}},
   distanceprotection:{name:'Distance Protection',tag:'DP',icon:'🔌',cat:'Electrical Protection',w:120,h:100,term:[['V',-50,-30,-1,0],['I',-50,30,-1,0],['TRIP',50,0,1,0]],init:{zone1:0.8,zone2:1.2,zone3:2.0}},
@@ -149,7 +149,7 @@ const DEFS={
   expansionjoint:{name:'Expansion Joint',tag:'EJ',icon:'🔄',cat:'Plumbing',w:100,h:40,term:[['IN',-40,0,-1,0,'h'],['OUT',40,0,1,0,'h']],init:{expansion:0}},
   flange:{name:'Flange',tag:'FL',icon:'⭕',cat:'Plumbing',w:60,h:60,term:[['IN',-25,0,-1,0,'h'],['OUT',25,0,1,0,'h']],init:{size:150,rating:300}},
   gasket:{name:'Gasket',tag:'GK',icon:'⭕',cat:'Plumbing',w:60,h:60,term:[['IN',-25,0,-1,0,'h'],['OUT',25,0,1,0,'h']],init:{material:'PTFE',thickness:3}},
-  pipesupport:{name:'Pipe Support',tag:'PS',icon:'🔧',cat:'Plumbing',w:60,h:80,term:[['PIPE',0,-30,0,-1,'h']],init:{type:'fixed',load:0}},
+  pipesupport:{name:'Pipe Support',tag:'PS',icon:'🔧',cat:'Plumbing',w:60,h:80,term:[['PIPE',0,-30,0,-1,'h']],init:{supportType:'fixed',load:0}},
   reducer:{name:'Reducer',tag:'RD',icon:'▶',cat:'Plumbing',w:80,h:40,term:[['IN',-35,0,-1,0,'h'],['OUT',35,0,1,0,'h']],init:{sizeIn:200,sizeOut:150}},
   teejoint:{name:'Tee Joint',tag:'TJ',icon:'┳',cat:'Plumbing',w:60,h:60,term:[['IN',-25,0,-1,0,'h'],['OUT1',25,-20,1,0,'h'],['OUT2',25,20,1,0,'h']],init:{size:150}},
   elbow90:{name:'90° Elbow',tag:'EL',icon:'┐',cat:'Plumbing',w:60,h:60,term:[['IN',-25,0,-1,0,'h'],['OUT',0,25,0,1,'h']],init:{size:150}},
@@ -2457,7 +2457,7 @@ spd(c){body(c,80,60,COL.edge);
   ctx.strokeStyle='#4a6a8c';ctx.lineWidth=2;ctx.strokeRect(-35,-25,70,50);
   ctx.beginPath();ctx.moveTo(-20,-10);ctx.lineTo(20,10);ctx.lineTo(-20,10);ctx.lineTo(20,-10);ctx.closePath();ctx.fillStyle=COL.warn;ctx.fill();
   txt(c,c.label,0,-32,COL.text,9);
-  txt(c,c.type.toUpperCase(),0,32,COL.mut,8,'center',800);},
+  txt(c,String(c.spdType||'type2').toUpperCase(),0,32,COL.mut,8,'center',800);},
 earthrod(c){body(c,60,100,COL.pe);
   ctx.fillStyle='#1a2a3c';ctx.fillRect(-20,-40,40,80);
   ctx.strokeStyle=COL.pe;ctx.lineWidth=2;ctx.strokeRect(-20,-40,40,80);
@@ -2942,7 +2942,7 @@ gasket(c){body(c,60,60,COL.edge);
 pipesupport(c){body(c,60,80,COL.edge);
   ctx.fillStyle='#1a2a3c';ctx.fillRect(-25,-35,50,70);
   ctx.strokeStyle='#4a6a8c';ctx.lineWidth=2;ctx.strokeRect(-25,-35,50,70);
-  txt(c,c.type,0,52,COL.text,9,'center',800);},
+  txt(c,c.supportType||'fixed',0,52,COL.text,9,'center',800);},
 reducer(c){body(c,80,40,COL.edge);
   ctx.fillStyle='#b87333';ctx.beginPath();ctx.moveTo(-35,-15);ctx.lineTo(35,-10);ctx.lineTo(35,10);ctx.lineTo(-35,15);ctx.closePath();ctx.fill();
   ctx.strokeStyle='#8a6a22';ctx.lineWidth=2;ctx.stroke();
@@ -3425,7 +3425,7 @@ hybridlfpgt:()=>fld('On',cI('on',c.on))+fld('Batt nominal (V)',nI('battNom',c.ba
       capacitorbank:()=>fld('kVAR',nI('kvar',c.kvar,5,100,5))+fld('Voltage (V)',nI('voltage',c.voltage,230,480,10))+`<div class="row"><button data-act="click">Connect/Disconnect</button></div>`,
       supercap:()=>fld('Capacitance (F)',nI('farads',c.farads,10,1000,10))+fld('Voltage (V)',nI('voltage',c.voltage,1.2,3.3,0.1))+fld('SOC (%)',nI('soc',c.soc,0,100,1)),
       fuse:()=>fld('Rating (A)',nI('rating',c.rating,1,100,1))+`<div class="row"><button data-act="click" class="danger">Reset/Replace</button></div>`,
-      spd:()=>fld('Type',sI('type',c.type,[['type1','Type 1'],['type2','Type 2'],['type3','Type 3']])),
+      spd:()=>fld('Type',sI('spdType',c.spdType,[['type1','Type 1'],['type2','Type 2'],['type3','Type 3']])),
       earthrod:()=>fld('Resistance (Ω)',nI('resistance',c.resistance,1,100,1)),
       lightning:()=>`<div class="note">Lightning protection device. Status: ${c.status}</div>`,
       relay:()=>fld('Contact',sI('contact',c.contact,[['NO','Normally Open'],['NC','Normally Closed']]))+`<div class="row"><button data-act="click">Toggle coil</button></div>`,
@@ -3457,7 +3457,7 @@ hybridlfpgt:()=>fld('On',cI('on',c.on))+fld('Batt nominal (V)',nI('battNom',c.ba
       busbar:()=>fld('Voltage (V)',nI('voltage',c.voltage,380,33000,1000)),
       hvbreaker:()=>fld('Voltage (kV)',nI('kv',c.kv,0.4,33,0.1))+fld('Rating (A)',nI('rating',c.rating,100,5000,100))+`<div class="row"><button data-act="click">Open/Close</button></div>`,
       transformerhv:()=>fld('Primary (kV)',nI('priKv',c.priKv,0.4,33,0.1))+fld('Secondary (kV)',nI('secKv',c.secKv,0.4,33,0.1))+fld('Power (MVA)',nI('mva',c.mva,10,500,10)),
-      reactor:()=>fld('MVAR',nI('mvar',c.mvar,10,200,10))+fld('Reactance (pu)',nI('x',c.x,0.1,1,0.05)),
+      reactor:()=>fld('MVAR',nI('mvar',c.mvar,10,200,10))+fld('Reactance (pu)',nI('xpu',c.xpu,0.1,1,0.05)),
       gasboosterpump:()=>fld('Discharge pressure (bar)',nI('pressure',c.pressure,5,80,1))+fld('Rated flow (m³/h)',nI('flow',c.flow,10,500,10))+`<div class="note">Needs gas at IN and a live supply across M / N.</div><div class="row"><button data-act="click">Start/Stop</button></div>`,
       steamboosterpump:()=>fld('Discharge pressure (bar)',nI('pressure',c.pressure,5,200,5))+fld('Rated flow (kg/h)',nI('flow',c.flow,500,50000,500))+`<div class="note">Needs steam at IN and a live supply across M / N.</div><div class="row"><button data-act="click">Start/Stop</button></div>`,
       airsupply:()=>fld('Blower on',cI('on',c.on))+fld('Unlimited air (ambient)',cI('unlimited',c.unlimited))+fld('Pressure (bar)',nI('pressure',c.pressure,.2,5,.1))+fld('Flow (m³/h)',nI('flow',c.flow,100,20000,100))+fld('Supply temp (°C)',nI('temperature',c.temperature??25,-20,80,1))+fld('Humidity (%RH)',nI('humidity',c.humidity??45,0,100,1))+fld('Motor power (kW)',nI('powerKw',c.powerKw??5.5,0,50,.5))+fld('Power factor',nI('pf',c.pf??.85,.3,1,.01))+fld('Fault',sI('fault',c.fault||'none',[['none','None'],['stall','Jammed rotor (overload)'],['open','Open winding'],['earth','Earth leakage']]))+
@@ -3511,7 +3511,7 @@ hybridlfpgt:()=>fld('On',cI('on',c.on))+fld('Batt nominal (V)',nI('battNom',c.ba
       expansionjoint:()=>fld('Expansion (mm)',nI('expansion',c.expansion,0,60,1)),
       flange:()=>fld('Size (mm)',nI('size',c.size,50,500,10))+fld('Rating (bar)',nI('rating',c.rating,100,500,10)),
       gasket:()=>fld('Material',sI('material',c.material,[['PTFE','PTFE'],['Rubber','Rubber'],['Metal','Metal']]))+fld('Thickness (mm)',nI('thickness',c.thickness,1,10,0.5)),
-      pipesupport:()=>fld('Type',sI('type',c.type,[['fixed','Fixed'],['spring','Spring'],['roller','Roller']]))+fld('Load (kg)',nI('load',c.load,0,1000,10)),
+      pipesupport:()=>fld('Type',sI('supportType',c.supportType,[['fixed','Fixed'],['spring','Spring'],['roller','Roller']]))+fld('Load (kg)',nI('load',c.load,0,1000,10)),
       reducer:()=>fld('Size In (mm)',nI('sizeIn',c.sizeIn,50,500,10))+fld('Size Out (mm)',nI('sizeOut',c.sizeOut,50,500,10)),
       teejoint:()=>fld('Size (mm)',nI('size',c.size,50,500,10)),
       elbow90:()=>fld('Size (mm)',nI('size',c.size,50,500,10)),
@@ -3587,7 +3587,7 @@ function describe(c){
     case'capacitorbank':return`Rating: ${c.kvar}kVAR\nVoltage: ${c.voltage}V\nStatus: ${c.connected?'CONNECTED':'DISCONNECTED'}`;
     case'supercap':return`Capacitance: ${c.farads}F\nVoltage: ${c.voltage.toFixed(1)}V\nSOC: ${(c.soc||0).toFixed(1)}%`;
     case'fuse':return`Rating: ${c.rating}A\nStatus: ${c.blown?'BLOWN':'OK'}`;
-    case'spd':return`Type: ${c.type.toUpperCase()}\nStatus: ${c.status}`;
+    case'spd':return`Type: ${String(c.spdType||'type2').toUpperCase()}\nStatus: ${c.status}`;
     case'earthrod':return`Resistance: ${c.resistance}Ω\nGround connection`;
     case'lightning':return`Status: ${c.status}\nLightning protection`;
     case'relay':return`Coil: ${c.coilOn?'ENERGIZED':'OFF'}\nContact: ${c.contact.toUpperCase()}\nOutput: ${c.coilOn?'CLOSED':'OPEN'}`;
@@ -3618,7 +3618,7 @@ function describe(c){
     case'busbar':return`Voltage: ${c.voltage}V\nCurrent: ${c.current.toFixed(0)}A`;
     case'hvbreaker':return`Status: ${c.tripped?'TRIPPED':c.closed?'CLOSED':'OPEN'}\nRating: ${c.rating}A\nVoltage: ${c.kv}kV`;
     case'transformerhv':return`Primary: ${c.priKv}kV\nSecondary: ${c.secKv}kV\nPower: ${c.mva}MVA\nRatio: ${c.ratio}`;
-    case'reactor':return`MVAR: ${c.mvar}\nReactance: ${c.x}\nRated: ${c.ratedV}kV`;
+    case'reactor':return`MVAR: ${c.mvar}\nReactance: ${c.xpu}\nRated: ${c.ratedV}kV`;
     case'gascompressor':return`Status: ${c.on?'RUNNING':'STOPPED'}\nPressure: ${c.pressure} bar\nFlow: ${c.flow} m³/h\nEfficiency: ${(c.efficiency*100).toFixed(0)}%`;
     case'gasboosterpump':return`Status: ${c.on?(c.powered?'RUNNING':'NO POWER'):'STOPPED'}\nPressure: ${(c.pressure||0).toFixed(0)} bar\nFlow: ${(c.flow||0).toFixed(0)} m³/h\nGas at IN: ${c._supplied?'YES':'NO'}`;
     case'steamboosterpump':return`Status: ${c.on?(c.powered?'RUNNING':'NO POWER'):'STOPPED'}\nPressure: ${(c.pressure||0).toFixed(0)} bar\nFlow: ${(c.flow||0).toFixed(0)} kg/h\nSteam at IN: ${c._supplied?'YES':'NO'}`;
@@ -3653,7 +3653,7 @@ function describe(c){
     case'expansionjoint':return`Expansion: ${c.expansion.toFixed(0)} mm\nThermal expansion`;
     case'flange':return`Size: ${c.size} mm\nRating: ${c.rating} bar`;
     case'gasket':return`Material: ${c.material}\nThickness: ${c.thickness} mm`;
-    case'pipesupport':return`Type: ${c.type}\nLoad: ${c.load} kg`;
+    case'pipesupport':return`Type: ${c.supportType||'fixed'}\nLoad: ${c.load} kg`;
     case'reducer':return`Size: ${c.sizeIn}→${c.sizeOut} mm\nReducer`;
     case'teejoint':return`Size: ${c.size} mm\nTee joint`;
     case'elbow90':return`Size: ${c.size} mm\n90° elbow`;
@@ -3661,7 +3661,7 @@ function describe(c){
     case'expansionjoint':return`Expansion: ${c.expansion.toFixed(0)} mm\nThermal expansion`;
     case'flange':return`Size: ${c.size} mm\nRating: ${c.rating} bar`;
     case'gasket':return`Material: ${c.material}\nThickness: ${c.thickness} mm`;
-    case'pipesupport':return`Type: ${c.type}\nLoad: ${c.load} kg`;
+    case'pipesupport':return`Type: ${c.supportType||'fixed'}\nLoad: ${c.load} kg`;
     case'avr':return`Setpoint: ${c.setpoint}V\nExcitation: ${c.excitation}%\nMode: ${c.mode}`;
     case'deaerator':return`Efficiency: ${(c.efficiency*100).toFixed(0)}%\nTemperature: ${c.temperature}°C`;
     case'lpsystem':return`Pressure: ${c.pressure} bar\nTemp: ${c.temperature}°C\nLow pressure system`;
